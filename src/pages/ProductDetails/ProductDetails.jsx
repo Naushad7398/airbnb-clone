@@ -108,27 +108,160 @@ const ProductDetails = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
 
                 {/* Left Section */}
+
                 <div>
-                    <h1 className="text-4xl font-bold">
-                        {product?.title}
-                    </h1>
 
-                    <p className="text-2xl font-semibold text-blue-600 mt-3">
-                        ${product?.price?.toFixed(2)}
-                    </p>
+                    {/* Host */}
 
-                    <p className="flex items-center gap-2 mt-4">
-                        ⭐ {product.rating}
-                    </p>
+                    <div className="border-b pb-8">
 
-                    <p className="mt-6 text-gray-600 leading-8">
-                        {product?.description}
-                    </p>
+                        <h2 className="text-2xl font-semibold">
+                            Hosted by Naushad
+                        </h2>
 
-                    <p className="mt-6 font-semibold uppercase tracking-wide text-gray-500">
-                        Category : {product.location}
-                    </p>
+                        <p className="mt-2 text-gray-600">
+                            Entire Villa · {guests} guests · 4 bedrooms · 5 beds · 3 baths
+                        </p>
+
+                    </div>
+
+                    {/* Highlights */}
+
+                    <div className="space-y-8 py-8 border-b">
+
+                        <div className="flex gap-4">
+
+                            <span className="text-3xl">🏡</span>
+
+                            <div>
+
+                                <h3 className="font-semibold">
+                                    Entire home
+                                </h3>
+
+                                <p className="text-gray-500 text-sm">
+                                    You'll have the entire villa to yourself.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div className="flex gap-4">
+
+                            <span className="text-3xl">📶</span>
+
+                            <div>
+
+                                <h3 className="font-semibold">
+                                    Fast Wifi
+                                </h3>
+
+                                <p className="text-gray-500 text-sm">
+                                    High-speed internet for work and entertainment.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div className="flex gap-4">
+
+                            <span className="text-3xl">🏊</span>
+
+                            <div>
+
+                                <h3 className="font-semibold">
+                                    Private Pool
+                                </h3>
+
+                                <p className="text-gray-500 text-sm">
+                                    Relax in your private swimming pool.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    {/* Description */}
+
+                    <div className="py-8">
+
+                        <h2 className="text-xl font-semibold mb-4">
+                            About this place
+                        </h2>
+
+                        <p className="leading-8 text-gray-600">
+                            Enjoy a luxurious stay with modern amenities, beautiful interiors,
+                            peaceful surroundings, and easy access to nearby attractions.
+                            Perfect for families, couples, and friends looking for a memorable getaway.
+                        </p>
+
+                    </div>
+                    {/* Amenities */}
+
+                    <div className="border-t py-8">
+
+                        <h2 className="mb-6 text-2xl font-semibold">
+                            What this place offers
+                        </h2>
+
+                        <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+
+                            <div className="flex items-center gap-3">
+                                <span className="text-2xl">📶</span>
+                                <span>Fast Wifi</span>
+                            </div>
+
+                            <div className="flex items-center gap-3">
+                                <span className="text-2xl">🏊</span>
+                                <span>Private Pool</span>
+                            </div>
+
+                            <div className="flex items-center gap-3">
+                                <span className="text-2xl">🚗</span>
+                                <span>Free Parking</span>
+                            </div>
+
+                            <div className="flex items-center gap-3">
+                                <span className="text-2xl">🍳</span>
+                                <span>Kitchen</span>
+                            </div>
+
+                            <div className="flex items-center gap-3">
+                                <span className="text-2xl">🧺</span>
+                                <span>Washing Machine</span>
+                            </div>
+
+                            <div className="flex items-center gap-3">
+                                <span className="text-2xl">📺</span>
+                                <span>Smart TV</span>
+                            </div>
+
+                            <div className="flex items-center gap-3">
+                                <span className="text-2xl">❄️</span>
+                                <span>Air Conditioning</span>
+                            </div>
+
+                            <div className="flex items-center gap-3">
+                                <span className="text-2xl">🔥</span>
+                                <span>BBQ Grill</span>
+                            </div>
+
+                        </div>
+
+                        <button
+                            className="mt-8 rounded-xl border border-black px-6 py-3 font-semibold transition hover:bg-black hover:text-white"
+                        >
+                            Show all 25 amenities
+                        </button>
+
+                    </div>
+
                 </div>
+
 
                 {/* Right Section */}
                 <div className="sticky top-24 h-fit">
