@@ -87,36 +87,118 @@ const ProductDetails = () => {
 
                 {/* Images */}
 
-                <div className="relative grid h-[520px] grid-cols-4 grid-rows-2 gap-2 overflow-hidden rounded-3xl">
+                {/* Gallery */}
 
-                    {/* Main */}
+                <div className="mb-8">
 
-                    <img
-                        src={product.images[0]}
-                        alt=""
-                        className="col-span-2 row-span-2 h-full w-full cursor-pointer object-cover transition duration-300 hover:brightness-90"
-                    />
+                    {/* ================= MOBILE GALLERY ================= */}
 
-                    {/* Right */}
-
-                    {product.images.slice(1, 5).map((image, index) => (
+                    <div className="relative lg:hidden">
 
                         <img
-                            key={index}
-                            src={image}
-                            alt=""
-                            className="h-full w-full cursor-pointer object-cover transition duration-300 hover:brightness-90"
+                            src={product.images[0]}
+                            alt={product.title}
+                            className="h-[420px] w-full rounded-2xl object-cover"
                         />
 
-                    ))}
+                        {/* Image Counter */}
 
-                    {/* Button */}
+                        <div className="absolute bottom-4 right-4 rounded-full bg-black/70 px-3 py-1 text-xs font-medium text-white">
+                            1 / {product.images.length}
+                        </div>
 
-                    <button
-                        className="absolute bottom-5 right-5 rounded-xl border bg-white px-4 py-2 text-sm font-medium shadow-lg transition hover:shadow-xl"
-                    >
-                        🖼 Show all photos
-                    </button>
+                        {/* Show All Photos */}
+
+                        <button
+                            className="
+                absolute bottom-4 left-4
+                flex items-center gap-2
+                rounded-lg
+                bg-white
+                px-4 py-2
+                text-sm font-medium
+                shadow-md
+                transition
+                hover:shadow-lg
+            "
+                        >
+                            <LuImages className="h-4 w-4" />
+                            Show all photos
+                        </button>
+
+                    </div>
+
+
+                    {/* ================= DESKTOP GALLERY ================= */}
+
+                    <div className="relative hidden h-[520px] grid-cols-4 grid-rows-2 gap-2 overflow-hidden rounded-3xl lg:grid">
+
+                        {/* Main Image */}
+
+                        <img
+                            src={product.images[0]}
+                            alt={product.title}
+                            className="
+                col-span-2
+                row-span-2
+                h-full
+                w-full
+                cursor-pointer
+                object-cover
+                transition
+                duration-300
+                hover:brightness-90
+            "
+                        />
+
+                        {/* Right Images */}
+
+                        {product.images.slice(1, 5).map((image, index) => (
+
+                            <img
+                                key={index}
+                                src={image}
+                                alt={`${product.title} ${index + 2}`}
+                                className="
+                    h-full
+                    w-full
+                    cursor-pointer
+                    object-cover
+                    transition
+                    duration-300
+                    hover:brightness-90
+                "
+                            />
+
+                        ))}
+
+                        {/* Show All Photos */}
+
+                        <button
+                            className="
+                absolute
+                bottom-5
+                right-5
+                flex
+                items-center
+                gap-2
+                rounded-xl
+                border
+                bg-white
+                px-4
+                py-2
+                text-sm
+                font-medium
+                shadow-lg
+                transition
+                hover:shadow-xl
+            "
+                        >
+                            <LuImages className="h-4 w-4" />
+                            Show all photos
+                        </button>
+
+                    </div>
 
                 </div>
 
@@ -552,7 +634,22 @@ const ProductDetails = () => {
 
                         <button
                             disabled={nights <= 0}
-                            className="mt-5 w-full rounded-full bg-gradient-to-r from-pink-500 to-rose-600 py-4 text-lg font-semibold text-white transition hover:scale-[1.01] hover:shadow-lg disabled:cursor-not-allowed disabled:from-gray-400 disabled:to-gray-400"
+                            className="
+                                        mt-6
+                                        w-full
+                                        rounded-full
+                                        bg-gradient-to-r
+                                        from-rose-500
+                                        to-pink-600
+                                        py-4
+                                        text-lg
+                                        font-semibold
+                                        text-white
+                                        transition
+                                        hover:from-rose-600
+                                        hover:to-pink-700
+                                        disabled:cursor-not-allowed
+                                        disabled:opacity-60"
                         >
                             Reserve
                         </button>

@@ -1,3 +1,4 @@
+import { LuGlobe } from "react-icons/lu";
 import {
     FaFacebook,
     FaInstagram,
@@ -164,9 +165,18 @@ const Footer = () => {
                         <span>Company Details</span>
                     </div>
 
-                    <div className="flex gap-4">
-                        <span>🌐 English (IN)</span>
-                        <span>₹ INR</span>
+                    <div className="flex items-center gap-5">
+
+                        <span className="flex items-center gap-2">
+                            <LuGlobe className="h-4 w-4" />
+                            English (IN)
+                        </span>
+
+                        <span className="flex items-center gap-2">
+                            <span className="font-medium">₹</span>
+                            INR
+                        </span>
+
                     </div>
 
                 </div>
