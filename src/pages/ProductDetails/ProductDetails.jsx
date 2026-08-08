@@ -1,6 +1,20 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { northGoa } from "../../data/northGoa";
+import { FaStar } from "react-icons/fa";
+
+import {
+    LuImages,
+    LuHouse,
+    LuWifi,
+    LuWaves,
+    LuCar,
+    LuChefHat,
+    LuWashingMachine,
+    LuTv,
+    LuSnowflake,
+    LuFlame,
+} from "react-icons/lu";
 
 const ProductDetails = () => {
     const [checkIn, setCheckIn] = useState("");
@@ -51,8 +65,9 @@ const ProductDetails = () => {
                 {/* Info */}
 
                 <div className="mb-6 flex items-center gap-3 text-sm">
+                    <span><FaStar className="text-yellow-300" /></span>
 
-                    <span>⭐ {product.rating}</span>
+                    <span> {product.rating}</span>
 
                     <span>•</span>
 
@@ -130,19 +145,21 @@ const ProductDetails = () => {
 
                     {/* Highlights */}
 
-                    <div className="space-y-8 py-8 border-b">
+                    <div className="space-y-8">
 
-                        <div className="flex gap-4">
+                        {/* Entire Home */}
 
-                            <span className="text-3xl">🏡</span>
+                        <div className="flex items-start gap-5">
+
+                            <LuHouse className="mt-1 h-7 w-7 shrink-0 text-gray-700" />
 
                             <div>
 
-                                <h3 className="font-semibold">
+                                <h3 className="text-lg font-semibold">
                                     Entire home
                                 </h3>
 
-                                <p className="text-gray-500 text-sm">
+                                <p className="mt-1 text-gray-500">
                                     You'll have the entire villa to yourself.
                                 </p>
 
@@ -150,17 +167,20 @@ const ProductDetails = () => {
 
                         </div>
 
-                        <div className="flex gap-4">
 
-                            <span className="text-3xl">📶</span>
+                        {/* Fast Wifi */}
+
+                        <div className="flex items-start gap-5">
+
+                            <LuWifi className="mt-1 h-7 w-7 shrink-0 text-gray-700" />
 
                             <div>
 
-                                <h3 className="font-semibold">
+                                <h3 className="text-lg font-semibold">
                                     Fast Wifi
                                 </h3>
 
-                                <p className="text-gray-500 text-sm">
+                                <p className="mt-1 text-gray-500">
                                     High-speed internet for work and entertainment.
                                 </p>
 
@@ -168,17 +188,20 @@ const ProductDetails = () => {
 
                         </div>
 
-                        <div className="flex gap-4">
 
-                            <span className="text-3xl">🏊</span>
+                        {/* Private Pool */}
+
+                        <div className="flex items-start gap-5">
+
+                            <LuWaves className="mt-1 h-7 w-7 shrink-0 text-gray-700" />
 
                             <div>
 
-                                <h3 className="font-semibold">
+                                <h3 className="text-lg font-semibold">
                                     Private Pool
                                 </h3>
 
-                                <p className="text-gray-500 text-sm">
+                                <p className="mt-1 text-gray-500">
                                     Relax in your private swimming pool.
                                 </p>
 
@@ -213,44 +236,48 @@ const ProductDetails = () => {
 
                         <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
 
-                            <div className="flex items-center gap-3">
-                                <span className="text-2xl">📶</span>
-                                <span>Fast Wifi</span>
-                            </div>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-y-7 gap-x-12">
 
-                            <div className="flex items-center gap-3">
-                                <span className="text-2xl">🏊</span>
-                                <span>Private Pool</span>
-                            </div>
+                                <div className="flex items-center gap-4">
+                                    <LuWifi className="text-2xl text-gray-700" />
+                                    <span>Fast Wifi</span>
+                                </div>
 
-                            <div className="flex items-center gap-3">
-                                <span className="text-2xl">🚗</span>
-                                <span>Free Parking</span>
-                            </div>
+                                <div className="flex items-center gap-4">
+                                    <LuWaves className="text-2xl text-gray-700" />
+                                    <span>Private Pool</span>
+                                </div>
 
-                            <div className="flex items-center gap-3">
-                                <span className="text-2xl">🍳</span>
-                                <span>Kitchen</span>
-                            </div>
+                                <div className="flex items-center gap-4">
+                                    <LuCar className="text-2xl text-gray-700" />
+                                    <span>Free Parking</span>
+                                </div>
 
-                            <div className="flex items-center gap-3">
-                                <span className="text-2xl">🧺</span>
-                                <span>Washing Machine</span>
-                            </div>
+                                <div className="flex items-center gap-4">
+                                    <LuChefHat className="text-2xl text-gray-700" />
+                                    <span>Kitchen</span>
+                                </div>
 
-                            <div className="flex items-center gap-3">
-                                <span className="text-2xl">📺</span>
-                                <span>Smart TV</span>
-                            </div>
+                                <div className="flex items-center gap-4">
+                                    <LuWashingMachine className="text-2xl text-gray-700" />
+                                    <span>Washing Machine</span>
+                                </div>
 
-                            <div className="flex items-center gap-3">
-                                <span className="text-2xl">❄️</span>
-                                <span>Air Conditioning</span>
-                            </div>
+                                <div className="flex items-center gap-4">
+                                    <LuTv className="text-2xl text-gray-700" />
+                                    <span>Smart TV</span>
+                                </div>
 
-                            <div className="flex items-center gap-3">
-                                <span className="text-2xl">🔥</span>
-                                <span>BBQ Grill</span>
+                                <div className="flex items-center gap-4">
+                                    <LuSnowflake className="text-2xl text-gray-700" />
+                                    <span>Air Conditioning</span>
+                                </div>
+
+                                <div className="flex items-center gap-4">
+                                    <LuFlame className="text-2xl text-gray-700" />
+                                    <span>BBQ Grill</span>
+                                </div>
+
                             </div>
 
                         </div>
@@ -272,7 +299,7 @@ const ProductDetails = () => {
                         <div className="flex items-center gap-2 mb-8">
 
                             <span className="text-2xl">
-                                ⭐
+                                <FaStar className="text-sm text-black" />
                             </span>
 
                             <h2 className="text-2xl font-semibold">
@@ -307,8 +334,11 @@ const ProductDetails = () => {
 
                                 </div>
 
-                                <p className="mb-2">
-                                    ⭐⭐⭐⭐⭐
+                                <p className="mb-2 flex">
+                                    <FaStar className="text-yellow-300" />
+                                    <FaStar className="text-yellow-300" />
+                                    <FaStar className="text-yellow-300" />
+                                    <FaStar className="text-yellow-300" />
                                 </p>
 
                                 <p className="leading-7 text-gray-600">
@@ -344,8 +374,12 @@ const ProductDetails = () => {
 
                                 </div>
 
-                                <p className="mb-2">
-                                    ⭐⭐⭐⭐⭐
+                                <p className="mb-2 flex">
+                                    <FaStar className="text-yellow-300" />
+                                    <FaStar className="text-yellow-300" />
+                                    <FaStar className="text-yellow-300" />
+                                    <FaStar className="text-yellow-300" />
+                                    <FaStar className="text-yellow-300" />
                                 </p>
 
                                 <p className="leading-7 text-gray-600">
@@ -380,158 +414,155 @@ const ProductDetails = () => {
                 {/* Right Section */}
                 <div className="sticky top-24 h-fit">
 
-                    <div className="border rounded-2xl p-6 shadow-xl bg-white w-full max-w-sm">
+                    <div className="w-full max-w-md rounded-2xl border border-gray-200 bg-white p-6 shadow-lg">
 
-                        <div className="flex items-start justify-between mb-6">
+                        {/* Price */}
 
-                            <div>
+                        <div className="mb-6">
 
-                                <h2 className="text-3xl font-bold">
-                                    ₹{product.price.toLocaleString()}
-                                </h2>
-
-                                <p className="text-gray-500">
-                                    / night
-                                </p>
-
-                            </div>
-
-                            <div className="text-right">
-
-                                <p className="font-semibold">
-                                    ⭐ {product.rating}
-                                </p>
-
-                                <p className="text-sm text-gray-500">
-                                    125 reviews
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                        {/* Check In */}
-                        <div className="mb-4">
-                            <label className="block mb-1">
-                                Check In
-                            </label>
-
-                            <input
-                                type="date"
-                                value={checkIn}
-                                onChange={(e) =>
-                                    setCheckIn(e.target.value)
+                            <span className="text-2xl font-semibold underline">
+                                ₹{nights > 0
+                                    ? totalPrice.toLocaleString()
+                                    : product.price.toLocaleString()
                                 }
-                                className="border rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            />
-                        </div>
+                            </span>
 
-                        {/* Check Out */}
-                        <div className="mb-4">
-                            <label className="block mb-1">
-                                Check Out
-                            </label>
-
-                            <input
-                                type="date"
-                                value={checkOut}
-                                onChange={(e) =>
-                                    setCheckOut(e.target.value)
+                            <span className="ml-1 text-lg">
+                                {nights > 0
+                                    ? `for ${nights} nights`
+                                    : " / night"
                                 }
-                                className="border rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            />
-                        </div>
-
-                        {/* Guests */}
-                        <div className="flex justify-between items-center mb-6">
-
-                            <span>Guests</span>
-
-                            <div className="flex items-center gap-3">
-
-                                <button
-                                    onClick={() => {
-                                        if (guests > 1) {
-                                            setGuests(guests - 1);
-                                        }
-                                    }}
-                                    className="w-10 h-10 border rounded-lg hover:bg-gray-100 transition"
-                                >
-                                    -
-                                </button>
-
-                                <span className="font-semibold">
-                                    {guests}
-                                </span>
-
-                                <button
-                                    onClick={() => {
-                                        if (guests < 10) {
-                                            setGuests(guests + 1);
-                                        }
-                                    }}
-                                    className="w-10 h-10 border rounded-lg hover:bg-gray-100 transition"
-                                >
-                                    +
-                                </button>
-
-                            </div>
-                        </div>
-
-                        {/* Summary */}
-
-                        <div className="border-t border-b py-5 space-y-3">
-
-                            <div className="flex justify-between">
-
-                                <span>
-                                    ₹{product.price.toLocaleString()} × {nights} nights
-                                </span>
-
-                                <span>
-                                    ₹{totalPrice.toLocaleString()}
-                                </span>
-
-                            </div>
-
-                            <div className="flex justify-between">
-                                <span>Cleaning fee</span>
-
-                                <span>₹1,500</span>
-                            </div>
-
-                            <div className="flex justify-between">
-                                <span>Service fee</span>
-
-                                <span>₹850</span>
-                            </div>
-
-                        </div>
-
-                        <div className="flex justify-between text-lg font-bold mt-5">
-
-                            <span>Total</span>
-
-                            <span>
-                                ₹{(totalPrice + 1500 + 850).toLocaleString()}
                             </span>
 
                         </div>
-                        <p className="mb-4 text-center text-sm text-gray-500">
-                            You won't be charged yet
-                        </p>
-                        {nights <= 0 && (
-                            <p className="text-red-500 text-sm mb-4">
-                                Please select valid check-in and check-out dates.
-                            </p>
-                        )}
+
+
+                        {/* Date + Guests Box */}
+
+                        <div className="overflow-hidden rounded-2xl border border-gray-400">
+
+                            {/* Dates */}
+
+                            <div className="grid grid-cols-2">
+
+                                {/* Check In */}
+
+                                <div className="border-r border-gray-400 p-3">
+
+                                    <label className="block text-xs font-bold uppercase">
+                                        Check-in
+                                    </label>
+
+                                    <input
+                                        type="date"
+                                        value={checkIn}
+                                        onChange={(e) =>
+                                            setCheckIn(e.target.value)
+                                        }
+                                        className="mt-1 w-full border-none bg-transparent text-sm outline-none"
+                                    />
+
+                                </div>
+
+
+                                {/* Check Out */}
+
+                                <div className="p-3">
+
+                                    <label className="block text-xs font-bold uppercase">
+                                        Check-out
+                                    </label>
+
+                                    <input
+                                        type="date"
+                                        value={checkOut}
+                                        onChange={(e) =>
+                                            setCheckOut(e.target.value)
+                                        }
+                                        className="mt-1 w-full border-none bg-transparent text-sm outline-none"
+                                    />
+
+                                </div>
+
+                            </div>
+
+
+                            {/* Guests */}
+
+                            <div className="flex items-center justify-between border-t border-gray-400 p-3">
+
+                                <div>
+
+                                    <p className="text-xs font-bold uppercase">
+                                        Guests
+                                    </p>
+
+                                    <p className="mt-1 text-sm">
+                                        {guests} {guests === 1 ? "Guest" : "Guests"}
+                                    </p>
+
+                                </div>
+
+
+                                <div className="flex items-center gap-2">
+
+                                    <button
+                                        onClick={() => {
+                                            if (guests > 1) {
+                                                setGuests(guests - 1);
+                                            }
+                                        }}
+                                        className="flex h-8 w-8 items-center justify-center rounded-full border border-gray-300 hover:bg-gray-100"
+                                    >
+                                        −
+                                    </button>
+
+                                    <span className="min-w-5 text-center font-medium">
+                                        {guests}
+                                    </span>
+
+                                    <button
+                                        onClick={() => {
+                                            if (guests < 10) {
+                                                setGuests(guests + 1);
+                                            }
+                                        }}
+                                        className="flex h-8 w-8 items-center justify-center rounded-full border border-gray-300 hover:bg-gray-100"
+                                    >
+                                        +
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        {/* Cancellation */}
+
+                        <div className="mt-5 rounded-xl bg-gray-100 px-4 py-3 text-center text-sm">
+
+                            Free cancellation before 20 August
+
+                        </div>
+
+
+                        {/* Reserve */}
 
                         <button
                             disabled={nights <= 0}
-                            className="mt-6 w-full rounded-xl bg-rose-500 py-3 font-semibold text-white transition hover:bg-rose-600 disabled:cursor-not-allowed disabled:bg-gray-400"
+                            className="mt-5 w-full rounded-full bg-gradient-to-r from-pink-500 to-rose-600 py-4 text-lg font-semibold text-white transition hover:scale-[1.01] hover:shadow-lg disabled:cursor-not-allowed disabled:from-gray-400 disabled:to-gray-400"
                         >
                             Reserve
                         </button>
+
+
+                        {/* Payment Message */}
+
+                        <p className="mt-5 text-center text-lg">
+                            You won't be charged yet
+                        </p>
 
                     </div>
 

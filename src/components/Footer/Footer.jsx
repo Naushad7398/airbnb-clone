@@ -8,44 +8,82 @@ import {
 const Footer = () => {
     return (
         <footer className="bg-[#f7f7f7] border-t mt-20">
-            <div className="border-b pb-10 mb-10">
+            <div className="border-t border-gray-200">
 
-                <h2 className="text-2xl font-semibold mb-6">
-                    Inspiration for future getaways
-                </h2>
+                <div className="mx-auto max-w-7xl px-6 py-10 sm:px-8 lg:px-10">
 
+                    <h2 className="mb-8 text-2xl font-semibold">
+                        Inspiration for future getaways
+                    </h2>
 
+                    <div className="grid grid-cols-2 gap-y-8 sm:grid-cols-3 lg:grid-cols-6 lg:gap-8">
 
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+                        {/* Goa */}
+                        <div className="text-center lg:text-left">
+                            <h3 className="font-medium">
+                                Goa
+                            </h3>
 
-                    <div>
-                        <h3 className="font-medium">Goa</h3>
-                        <p className="text-sm text-gray-500">Beach Villas</p>
-                    </div>
+                            <p className="mt-1 text-sm text-gray-500">
+                                Beach Villas
+                            </p>
+                        </div>
 
-                    <div>
-                        <h3 className="font-medium">Mumbai</h3>
-                        <p className="text-sm text-gray-500">Luxury Apartments</p>
-                    </div>
+                        {/* Mumbai */}
+                        <div className="text-center lg:text-left">
+                            <h3 className="font-medium">
+                                Mumbai
+                            </h3>
 
-                    <div>
-                        <h3 className="font-medium">Delhi</h3>
-                        <p className="text-sm text-gray-500">City Homes</p>
-                    </div>
+                            <p className="mt-1 text-sm text-gray-500">
+                                Luxury Apartments
+                            </p>
+                        </div>
 
-                    <div>
-                        <h3 className="font-medium">Pune</h3>
-                        <p className="text-sm text-gray-500">Business Stays</p>
-                    </div>
+                        {/* Delhi */}
+                        <div className="text-center lg:text-left">
+                            <h3 className="font-medium">
+                                Delhi
+                            </h3>
 
-                    <div>
-                        <h3 className="font-medium">Lonavala</h3>
-                        <p className="text-sm text-gray-500">Hill Villas</p>
-                    </div>
+                            <p className="mt-1 text-sm text-gray-500">
+                                City Homes
+                            </p>
+                        </div>
 
-                    <div>
-                        <h3 className="font-medium">Jaipur</h3>
-                        <p className="text-sm text-gray-500">Royal Heritage</p>
+                        {/* Pune */}
+                        <div className="text-center lg:text-left">
+                            <h3 className="font-medium">
+                                Pune
+                            </h3>
+
+                            <p className="mt-1 text-sm text-gray-500">
+                                Business Stays
+                            </p>
+                        </div>
+
+                        {/* Lonavala */}
+                        <div className="text-center lg:text-left">
+                            <h3 className="font-medium">
+                                Lonavala
+                            </h3>
+
+                            <p className="mt-1 text-sm text-gray-500">
+                                Hill Villas
+                            </p>
+                        </div>
+
+                        {/* Jaipur */}
+                        <div className="text-center lg:text-left">
+                            <h3 className="font-medium">
+                                Jaipur
+                            </h3>
+
+                            <p className="mt-1 text-sm text-gray-500">
+                                Royal Heritage
+                            </p>
+                        </div>
+
                     </div>
 
                 </div>
@@ -100,13 +138,13 @@ const Footer = () => {
 
                         <div className="flex gap-5 text-2xl">
 
-                            <FaFacebook  className="cursor-pointer transition duration-300 hover:scale-110 hover:-translate-y-1"/>
+                            <FaFacebook className="cursor-pointer transition duration-300 hover:scale-110 hover:-translate-y-1" />
 
-                            <FaInstagram  className="cursor-pointer transition duration-300 hover:scale-110 hover:-translate-y-1"/>
+                            <FaInstagram className="cursor-pointer transition duration-300 hover:scale-110 hover:-translate-y-1" />
 
-                            <FaTwitter  className="cursor-pointer transition duration-300 hover:scale-110 hover:-translate-y-1"/>
+                            <FaTwitter className="cursor-pointer transition duration-300 hover:scale-110 hover:-translate-y-1" />
 
-                            <FaLinkedin className="cursor-pointer transition duration-300 hover:scale-110 hover:-translate-y-1"/>
+                            <FaLinkedin className="cursor-pointer transition duration-300 hover:scale-110 hover:-translate-y-1" />
 
                         </div>
 

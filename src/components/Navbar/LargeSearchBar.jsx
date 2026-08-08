@@ -3,7 +3,7 @@ import { IoSearch } from "react-icons/io5";
 
 const LargeSearchBar = () => {
   return (
-    <div className="flex w-[900px] items-center rounded-full border border-gray-200 bg-white shadow-lg transition-all duration-300 hover:shadow-xl">
+    <div className="flex w-[900px] items-center rounded-full border border-gray-200 bg-white shadow-md">
 
       {/* Where */}
       <div className="flex-1 cursor-pointer rounded-l-full px-8 py-4 hover:bg-gray-100">

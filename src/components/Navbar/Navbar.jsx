@@ -29,14 +29,15 @@ const Navbar = () => {
           }`}
       >
 
-        {/* Top Row */}
-        <div className="relative flex items-center justify-between">
+        {/* Desktop Navbar */}
+
+        <div className="hidden items-center justify-between lg:flex">
 
           {/* Logo */}
           <Logo />
 
           {/* Center */}
-          {/* Center */}
+
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
 
             <AnimatePresence mode="wait">
@@ -48,10 +49,6 @@ const Navbar = () => {
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
-                  transition={{
-                    duration: 0.35,
-                    ease: "easeInOut",
-                  }}
                 >
                   <Categories />
                 </motion.div>
@@ -60,24 +57,9 @@ const Navbar = () => {
 
                 <motion.div
                   key="smallSearch"
-                  initial={{
-                    opacity: 0,
-                    y: 15,
-                    scale: 0.9,
-                  }}
-                  animate={{
-                    opacity: 1,
-                    y: 0,
-                    scale: 1,
-                  }}
-                  exit={{
-                    opacity: 0,
-                    y: 15,
-                  }}
-                  transition={{
-                    duration: 0.35,
-                    ease: "easeInOut",
-                  }}
+                  initial={{ opacity: 0, y: 15, scale: 0.9 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 15 }}
                 >
                   <SmallSearchBar />
                 </motion.div>
@@ -89,15 +71,35 @@ const Navbar = () => {
           </div>
 
           {/* Right */}
+
           <UserMenu />
 
         </div>
 
+
+        {/* Mobile Navbar */}
+
+        <div className="lg:hidden">
+
+          {/* Mobile Search */}
+
+          <div className="mb-3">
+            <SmallSearchBar />
+          </div>
+
+          {/* Mobile Categories */}
+
+          <Categories />
+
+        </div>
+
         {/* Large Search Bar */}
+        {/* Large Search Bar - Desktop Only */}
+
         <div
-          className={`flex justify-center overflow-hidden transition-all duration-500 ease-in-out ${isScrolled
-            ? "max-h-0 opacity-0 -translate-y-8 scale-95"
-            : "max-h-48 opacity-100 translate-y-0 scale-100 pt-8"
+          className={`hidden justify-center overflow-hidden transition-all duration-500 ease-in-out lg:flex ${isScrolled
+              ? "max-h-0 opacity-0 -translate-y-8 scale-95"
+              : "max-h-48 opacity-100 translate-y-0 pt-8"
             }`}
         >
           <LargeSearchBar />
