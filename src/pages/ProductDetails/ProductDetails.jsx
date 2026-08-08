@@ -26,7 +26,10 @@ const ProductDetails = () => {
 
         const difference = checkOutDate - checkInDate;
 
-        return difference / (1000 * 60 * 60 * 24);
+        const calculatedNights =
+            difference / (1000 * 60 * 60 * 24);
+
+        return calculatedNights > 0 ? calculatedNights : 0;
     };
 
     const nights = calculateNights();
@@ -260,7 +263,118 @@ const ProductDetails = () => {
 
                     </div>
 
+                    {/* Reviews */}
+
+                    <div className="border-t border-gray-200 py-10">
+
+                        {/* Reviews Header */}
+
+                        <div className="flex items-center gap-2 mb-8">
+
+                            <span className="text-2xl">
+                                ⭐
+                            </span>
+
+                            <h2 className="text-2xl font-semibold">
+                                {product.rating} · 125 reviews
+                            </h2>
+
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+
+                            {/* Review 1 */}
+
+                            <div>
+
+                                <div className="flex items-center gap-3 mb-4">
+
+                                    <div className="h-12 w-12 rounded-full bg-gray-200 flex items-center justify-center font-semibold">
+                                        AS
+                                    </div>
+
+                                    <div>
+
+                                        <h3 className="font-semibold">
+                                            Aman Sharma
+                                        </h3>
+
+                                        <p className="text-sm text-gray-500">
+                                            July 2026
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                                <p className="mb-2">
+                                    ⭐⭐⭐⭐⭐
+                                </p>
+
+                                <p className="leading-7 text-gray-600">
+                                    Amazing stay! The villa was clean, spacious,
+                                    and exactly as shown in the pictures.
+                                    The pool was the highlight of our trip.
+                                </p>
+
+                            </div>
+
+
+                            {/* Review 2 */}
+
+                            <div>
+
+                                <div className="flex items-center gap-3 mb-4">
+
+                                    <div className="h-12 w-12 rounded-full bg-gray-200 flex items-center justify-center font-semibold">
+                                        PV
+                                    </div>
+
+                                    <div>
+
+                                        <h3 className="font-semibold">
+                                            Priya Verma
+                                        </h3>
+
+                                        <p className="text-sm text-gray-500">
+                                            June 2026
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                                <p className="mb-2">
+                                    ⭐⭐⭐⭐⭐
+                                </p>
+
+                                <p className="leading-7 text-gray-600">
+                                    Beautiful property with a peaceful location.
+                                    The rooms were comfortable and the host was
+                                    very helpful. Highly recommended.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        {/* Show All Reviews */}
+
+                        <button
+                            className="mt-8 rounded-xl border border-black px-6 py-3 font-semibold transition hover:bg-black hover:text-white"
+                        >
+                            Show all 125 reviews
+                        </button>
+
+
+
+
+                    </div>
+
                 </div>
+
+
 
 
                 {/* Right Section */}
@@ -268,9 +382,33 @@ const ProductDetails = () => {
 
                     <div className="border rounded-2xl p-6 shadow-xl bg-white w-full max-w-sm">
 
-                        <h2 className="text-2xl font-bold mb-6">
-                            ₹{product.price.toLocaleString()} / night
-                        </h2>
+                        <div className="flex items-start justify-between mb-6">
+
+                            <div>
+
+                                <h2 className="text-3xl font-bold">
+                                    ₹{product.price.toLocaleString()}
+                                </h2>
+
+                                <p className="text-gray-500">
+                                    / night
+                                </p>
+
+                            </div>
+
+                            <div className="text-right">
+
+                                <p className="font-semibold">
+                                    ⭐ {product.rating}
+                                </p>
+
+                                <p className="text-sm text-gray-500">
+                                    125 reviews
+                                </p>
+
+                            </div>
+
+                        </div>
 
                         {/* Check In */}
                         <div className="mb-4">
@@ -342,14 +480,46 @@ const ProductDetails = () => {
 
                         {/* Summary */}
 
-                        <div className="mb-6">
-                            <p>Nights : {nights}</p>
+                        <div className="border-t border-b py-5 space-y-3">
 
-                            <p className="text-2xl font-bold text-blue-600 mt-2">
-                                Total : ₹{totalPrice.toLocaleString()}
-                            </p>
+                            <div className="flex justify-between">
+
+                                <span>
+                                    ₹{product.price.toLocaleString()} × {nights} nights
+                                </span>
+
+                                <span>
+                                    ₹{totalPrice.toLocaleString()}
+                                </span>
+
+                            </div>
+
+                            <div className="flex justify-between">
+                                <span>Cleaning fee</span>
+
+                                <span>₹1,500</span>
+                            </div>
+
+                            <div className="flex justify-between">
+                                <span>Service fee</span>
+
+                                <span>₹850</span>
+                            </div>
+
                         </div>
 
+                        <div className="flex justify-between text-lg font-bold mt-5">
+
+                            <span>Total</span>
+
+                            <span>
+                                ₹{(totalPrice + 1500 + 850).toLocaleString()}
+                            </span>
+
+                        </div>
+                        <p className="mb-4 text-center text-sm text-gray-500">
+                            You won't be charged yet
+                        </p>
                         {nights <= 0 && (
                             <p className="text-red-500 text-sm mb-4">
                                 Please select valid check-in and check-out dates.
@@ -358,7 +528,7 @@ const ProductDetails = () => {
 
                         <button
                             disabled={nights <= 0}
-                            className="w-full bg-blue-600 text-white py-3 rounded-xl hover:bg-blue-700 transition disabled:bg-gray-400 disabled:cursor-not-allowed"
+                            className="mt-6 w-full rounded-xl bg-rose-500 py-3 font-semibold text-white transition hover:bg-rose-600 disabled:cursor-not-allowed disabled:bg-gray-400"
                         >
                             Reserve
                         </button>
@@ -369,7 +539,7 @@ const ProductDetails = () => {
 
             </div>
 
-        </div>
+        </div >
     );
 };
 
