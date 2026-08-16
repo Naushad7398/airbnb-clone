@@ -11,7 +11,7 @@ const Footer = () => {
         <footer className="bg-[#f7f7f7] border-t mt-20">
             <div className="border-t border-gray-200">
 
-                <div className="mx-auto max-w-7xl px-6 py-10 sm:px-8 lg:px-10">
+                <div className="mx-auto max-w-5xl px-3 py-8 sm:px-6 sm:py-10 lg:px-10">
 
                     <h2 className="mb-8 text-2xl font-semibold">
                         Inspiration for future getaways
@@ -91,9 +91,9 @@ const Footer = () => {
 
             </div>
 
-            <div className="max-w-7xl mx-auto px-8 py-12">
+            <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-10 lg:px-10 lg:py-12">
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+                <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 sm:gap-8 lg:grid-cols-4 lg:gap-10">
 
                     {/* Support */}
                     <div>
@@ -155,7 +155,7 @@ const Footer = () => {
 
                 <hr className="my-8" />
 
-                <div className="flex flex-col lg:flex-row justify-between gap-4 text-sm text-gray-600">
+                <div className="flex flex-col gap-4 text-sm text-gray-600 lg:flex-row lg:items-center lg:justify-between">
 
                     <div className="flex flex-wrap gap-4">
                         <span>© 2026 Airbnb Clone</span>

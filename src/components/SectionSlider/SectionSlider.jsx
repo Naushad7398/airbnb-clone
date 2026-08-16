@@ -1,11 +1,12 @@
 import React, { useRef, useEffect, useState } from "react";
 
 import ArrowButtons from "./ArrowButtons";
-import SeeAllCard from './SeeAllCard';
+import SeeAllCard from "./SeeAllCard";
 import PropertyCard from "../PropertyCard/PropertyCard";
 
 const SectionSlider = ({ title, data }) => {
     const scrollRef = useRef(null);
+
     const [showLeft, setShowLeft] = useState(false);
     const [showRight, setShowRight] = useState(true);
 
@@ -32,11 +33,11 @@ const SectionSlider = ({ title, data }) => {
 
         if (!slider) return;
 
-        setShowLeft(slider.scrollLeft > 0);
+        setShowLeft(slider.scrollLeft > 5);
 
         setShowRight(
             slider.scrollLeft + slider.clientWidth <
-            slider.scrollWidth - 10
+                slider.scrollWidth - 10
         );
     };
 
@@ -49,18 +50,22 @@ const SectionSlider = ({ title, data }) => {
 
         slider.addEventListener("scroll", checkScroll);
 
+        window.addEventListener("resize", checkScroll);
+
         return () => {
             slider.removeEventListener("scroll", checkScroll);
+            window.removeEventListener("resize", checkScroll);
         };
-    }, []);
+    }, [data]);
 
     return (
-        <section className="mx-auto max-w-[1750px] px-6 py-8">
+        <section className="mx-auto w-full max-w-[1750px] px-0 py-2 sm:px-6 sm:py-4 lg:px-8 lg:py-6">
 
             {/* Header */}
-            <div className="mb-6 flex items-center justify-between">
 
-                <h2 className="text-3xl font-semibold">
+            <div className="mb-3 flex items-center justify-between sm:mb-4 lg:mb-5">
+
+                <h2 className="text-xl font-semibold sm:text-2xl lg:text-3xl">
                     {title}
                 </h2>
 
@@ -73,11 +78,23 @@ const SectionSlider = ({ title, data }) => {
 
             </div>
 
+
             {/* Scroll Container */}
 
             <div
                 ref={scrollRef}
-                className="flex gap-4 overflow-x-auto scroll-smooth py-2 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden"
+                className="
+                    flex
+                    gap-3
+                    overflow-x-auto
+                    scroll-smooth
+                    snap-x
+                    snap-mandatory
+                    [scrollbar-width:none]
+                    [&::-webkit-scrollbar]:hidden
+                    sm:gap-4
+                    lg:gap-5
+                "
             >
 
                 {data.map((property) => (
@@ -97,11 +114,12 @@ const SectionSlider = ({ title, data }) => {
                     />
                 ))}
 
+
                 <SeeAllCard
                     title={title}
                     images={[
-                        data[0].image,
-                        data[1].image,
+                        data[0]?.images?.[0],
+                        data[1]?.images?.[0],
                     ]}
                 />
 
@@ -109,5 +127,6 @@ const SectionSlider = ({ title, data }) => {
 
         </section>
     );
-}
+};
+
 export default SectionSlider;

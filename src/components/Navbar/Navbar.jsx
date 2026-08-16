@@ -1,112 +1,97 @@
 import React, { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import Logo from "./Logo";
 import Categories from "./Categories";
 import LargeSearchBar from "./LargeSearchBar";
 import SmallSearchBar from "./SmallSearchBar";
 import UserMenu from "./UserMenu";
-import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 60);
+      setIsScrolled(window.scrollY > 30);
     };
 
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const searchTransition = { type: "spring", stiffness: 260, damping: 24, mass: 0.8 };
+
   return (
-    <nav className="sticky top-0 z-50 bg-white border-b border-gray-200">
-
-      <div
-        className={`mx-auto max-w-[1600px] px-12 transition-all duration-300 ${isScrolled ? "py-3" : "py-6"
-          }`}
-      >
-
-        {/* Desktop Navbar */}
-
-        <div className="hidden items-center justify-between lg:flex">
-
-          {/* Logo */}
+    <nav className="sticky top-0 z-50 border-b border-gray-200 bg-white">
+      <div className="mx-auto max-w-[1600px] px-3 py-2 sm:px-6 lg:px-12 lg:py-2">
+        <div className="hidden items-center justify-between lg:flex lg:items-center lg:gap-6">
           <Logo />
 
-          {/* Center */}
+          <AnimatePresence mode="wait">
+            {!isScrolled && (
+              <motion.div
+                key="desktop-categories"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={searchTransition}
+                className="flex flex-1 justify-center"
+              >
+                <Categories />
+              </motion.div>
+            )}
+          </AnimatePresence>
 
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+          <div className="flex items-center justify-end">
+            <UserMenu />
+          </div>
+        </div>
 
-            <AnimatePresence mode="wait">
-
-              {!isScrolled ? (
-
-                <motion.div
-                  key="categories"
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                >
-                  <Categories />
-                </motion.div>
-
-              ) : (
-
-                <motion.div
-                  key="smallSearch"
-                  initial={{ opacity: 0, y: 15, scale: 0.9 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: 15 }}
-                >
+        <div className="hidden lg:block lg:pt-1">
+          <AnimatePresence mode="wait">
+            {isScrolled && (
+              <motion.div
+                key="small-search-on-scroll"
+                initial={{ opacity: 0, y: -16, scale: 0.96 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -16, scale: 0.96 }}
+                transition={searchTransition}
+                className="pointer-events-none absolute left-1/2 top-2 -translate-x-1/2"
+              >
+                <div className="pointer-events-auto flex items-center justify-center">
                   <SmallSearchBar />
-                </motion.div>
-
-              )}
-
-            </AnimatePresence>
-
-          </div>
-
-          {/* Right */}
-
-          <UserMenu />
-
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
 
+        <div className="mt-3 lg:hidden">
+          <SmallSearchBar />
+        </div>
 
-        {/* Mobile Navbar */}
-
-        <div className="lg:hidden">
-
-          {/* Mobile Search */}
-
-          <div className="mb-3">
-            <SmallSearchBar />
-          </div>
-
-          {/* Mobile Categories */}
-
+        <div className="mt-4 lg:hidden">
           <Categories />
-
         </div>
 
-        {/* Large Search Bar */}
-        {/* Large Search Bar - Desktop Only */}
-
-        <div
-          className={`hidden justify-center overflow-hidden transition-all duration-500 ease-in-out lg:flex ${isScrolled
-              ? "max-h-0 opacity-0 -translate-y-8 scale-95"
-              : "max-h-48 opacity-100 translate-y-0 pt-8"
-            }`}
-        >
-          <LargeSearchBar />
+        <div className="hidden lg:flex lg:justify-center">
+          <AnimatePresence mode="wait">
+            {!isScrolled ? (
+              <motion.div
+                key="large-search"
+                initial={{ opacity: 0, y: -10, scale: 0.98 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -10, scale: 0.98 }}
+                transition={searchTransition}
+                className="mt-1"
+              >
+                <LargeSearchBar />
+              </motion.div>
+            ) : null}
+          </AnimatePresence>
         </div>
-
       </div>
-
     </nav>
   );
 };

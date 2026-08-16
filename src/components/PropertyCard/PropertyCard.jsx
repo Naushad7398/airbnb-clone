@@ -21,7 +21,7 @@ const PropertyCard = ({
     return (
         <Link
             to={`/product/${id}`}
-            className="group block w-[260px] flex-shrink-0 snap-start"
+            className="group block w-[210px] flex-shrink-0 snap-start sm:w-[230px] lg:w-[240px] xl:w-[250px]"
         >
             <div className="relative overflow-hidden rounded-2xl">
                 {guestFavourite && (
@@ -32,7 +32,7 @@ const PropertyCard = ({
                 <img
                     src={images[0]}
                     alt={title}
-                    className="h-[230px] w-full rounded-2xl object-cover transition duration-300 group-hover:brightness-95"
+                    className="h-[200px] w-full rounded-2xl object-cover transition duration-300 group-hover:brightness-95 sm:h-[210px] lg:h-[220px]"
                 />
                 <button
                     onClick={(e) => {
@@ -53,35 +53,24 @@ const PropertyCard = ({
             </div>
 
             <div className="mt-3">
+                <div className="flex items-start justify-between gap-2">
+                    <div className="min-w-0 flex-1">
+                        <h2 className="truncate font-semibold text-[15px] text-gray-900">
+                            {title}
+                        </h2>
+                    </div>
 
-                <div className="flex items-start justify-between">
-
-                    <h2 className="truncate font-semibold text-[15px]">
-                        {title}
-                    </h2>
-
-                    <p className="text-sm text-gray-500">
-                        {location}
-                    </p>
-                    <h2 className="truncate font-semibold text-[15px]">
-                        {title}
-                    </h2>
-
-                    <p className="text-sm text-gray-500">
-                        {location}
-                    </p>
-
+                    <div className="flex items-center gap-1 whitespace-nowrap text-sm text-gray-600">
+                        <span>★</span>
+                        <span>{rating}</span>
+                    </div>
                 </div>
 
-                <h2 className="truncate font-semibold text-[15px]">
-                    {title}
-                </h2>
-
-                <p className="text-sm text-gray-500">
+                <p className="mt-1 truncate text-sm text-gray-500">
                     {location}
                 </p>
 
-                <p className="text-[14px] text-gray-500">
+                <p className="mt-1 text-[14px] text-gray-500">
                     {dates}
                 </p>
 
